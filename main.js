@@ -37,7 +37,7 @@ window.addEventListener("load", () => {
           const celsius = Math.floor(degree - 273.15);
           degreeHtml.innerHTML = `${celsius}&degC`;
           // degreeHtml.textContent = degree;
-          const opis = data.weather[1].description;
+          const opis = data.weather[0].description;
           // console.log(opis);
           opisHtml.textContent = opis;
 
@@ -48,12 +48,12 @@ window.addEventListener("load", () => {
     });
 
   }
-  function setIcons(icon, iconID) {
-    const skycons = new Skycons({ color: "cadetblue" });
-    const currentIcon = icon.replace(/-/g, "_").toUpperCase();
-    skycons.play();
-    return skycons.set(iconID, Skycons[currentIcon]);
+  // function setIcons(icon, iconID) {
+  //   const skycons = new Skycons({ color: "cadetblue" });
+  //   const currentIcon = icon.replace(/-/g, "_").toUpperCase();
+  //   skycons.play();
+  //   return skycons.set(iconID, Skycons[currentIcon]);
 
-  }
+  // }
 
 })
