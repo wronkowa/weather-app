@@ -10,14 +10,25 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1 class="main">Pogoda dla:</h1>
-    <h1 class="place"></h1>
-    <!-- <div><canvas class="icon" width="100" height="100"></canvas></div> -->
-    <h2>Temperatura <span>C</span></h2>
-    <p></p>
+  <div class="wrapper">
+    <header>
+      <h1>Aplikacja pogodowa</h1>
+    </header>
+    <div class="form-container">
+      <label>Wpisz miasto: <input type="text" id="city"></label>
+      <button>Sprawdz pogode</button>
+    </div>
+    <div class="result">
+      <h1 class="place"></h1>
+      <h2 class="degree"></h2>
+      <p class="description"></p>
+    </div>
+    <footer>
+      <p>Copyright &copy <a href="https://github.com/wronkowa" target="_blank">wronkowa</a></p>
+    </footer>
   </div>
-  <!-- <script src="skycons.js"></script> -->
+
+
   <script src="main.js"></script>
 </body>
 
