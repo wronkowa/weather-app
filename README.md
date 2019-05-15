@@ -1,6 +1,6 @@
-#WEATHER APP
+# WEATHER APP
 
-##Technologies
+## Technologies
 Project is created with:
 * HTMl 5
 * CSS 3
