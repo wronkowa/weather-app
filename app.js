@@ -35,12 +35,16 @@ function getDate() {
 function getPosition() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
-      // console.log(position);
+      console.log(position);
       dl = position.coords.longitude;
       szer = position.coords.latitude;
     });
   }
-  else alert('geolokalizaja nie jest wspierana na Twoim urządzeniu')
+  else {
+    alert('geolokalizaja nie jest wspierana na Twoim urządzeniu');
+    dl = 21.0117800;
+    szer = 52.2297700;
+  }
 }
 
 function getWeather(dl, szer) {
