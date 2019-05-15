@@ -6,23 +6,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Weather APP</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="wrapper">
-    <header>
-      <h1>Aplikacja pogodowa</h1>
+  <div class="app-wrapper">
+    <header class="header">
+      <h1>weather app</h1>
     </header>
-    <div class="form-container">
-      <label>Wpisz miasto: <input type="text" id="city"></label>
-      <button>Sprawdz pogode</button>
-    </div>
-    <div class="result">
-      <h1 class="place"></h1>
-      <h2 class="degree"></h2>
-      <p class="description"></p>
-    </div>
+    <main>
+      <!-- section with today's date -->
+      <section class="date-container">
+        <p>Today is <span class="day">Monday</span> <span class="date">15.05.2019</span> <span class="time">15:23</span>
+        </p>
+      </section>
+
+      <!-- section place -->
+      <section class="app-place">
+        <h2 class="place-name">Rzeszow</h2>
+        <i class="fas fa-search"></i>
+      </section>
+
+      <!-- section weather -->
+      <section class="weather-container">
+        <div class="weather-degree">
+          <h3 class="degree">13 <span class="degree-symbol">K</span></h3>
+        </div>
+        <div class="weather-description">
+          <div class="container">
+            <p>Description:</p>
+            <p>opis</p>
+          </div>
+          <div class="container">
+            <p>Sunrise:</p>
+            <p>opis</p>
+          </div>
+          <div class="container">
+            <p>Sunset:</p>
+            <p>opis</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
     <footer>
       <p>Copyright &copy <a href="https://github.com/wronkowa" target="_blank">wronkowa</a></p>
     </footer>
