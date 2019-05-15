@@ -32,22 +32,9 @@ function getDate() {
   document.querySelector('.date').textContent = `${day}.${month}.${year}`;
 }
 
-function getPosition() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      console.log(position);
-      dl = position.coords.longitude;
-      szer = position.coords.latitude;
-    });
-  }
-  else {
-    alert('geolokalizaja nie jest wspierana na Twoim urządzeniu');
-    dl = 21.0117800;
-    szer = 52.2297700;
-  }
-}
 
 function getWeather(dl, szer) {
+  // console.log(dl, szer);
   const api = `https://api.openweathermap.org/data/2.5/weather?lat=${szer}&lon=${dl}&APPID=b25fd1e90c25991bbe5d57ab854aaaab`;
 
   fetch(api)
@@ -76,7 +63,25 @@ function getWeather(dl, szer) {
 
 }
 
+function getPosition() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+      dl = position.coords.longitude;
+      szer = position.coords.latitude;
+      getWeather(dl, szer);
+    });
+  }
+  else {
+    alert('geolokalizaja nie jest wspierana na Twoim urządzeniu');
+    dl = 21.0117800;
+    szer = 52.2297700;
+    getWeather(dl, szer)
+  }
+
+}
+
 getDate();
 getPosition();
+
 // getWeather(21.0117800, 52.2297700);
-getWeather(dl, szer);
+// getWeather(dl, szer);
