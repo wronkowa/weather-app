@@ -63,6 +63,7 @@ main{
   /* background-color: grey; */
   border: 1px solid black;
   padding: 5px 0;
+  cursor: pointer;
 }
 
 .place-name{
@@ -80,13 +81,21 @@ main{
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  /* display: flex; */
   /* padding: 20px 0; */
   /* box-shadow: 0 0 10px 1px rgb(139, 139, 139); */
+}
+.name-city {
+  padding: 20px 0;
+  font-size: 2rem;
+  color: #6AC1B7;
+  font-weight: bold;
 }
 .weather-degree{
   padding: 20px 0;
   font-size: 2rem;
-  color: #6AC1B7;
+  /* color: #6AC1B7; */
+  color: #A4C83C;
   display: flex;
   justify-content: center;
   font-weight: bold;

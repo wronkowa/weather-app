@@ -15,6 +15,40 @@ function setNameDay(dayNumber) {
   }
 }
 
+function getCityName() {
+  document.querySelector('.app-place i').addEventListener("click", () => {
+    if (!placeName.value) alert('Wpisz nazw? miejscowosci');
+    else {
+      document.querySelector('.name-city').textContent = `You check weather for: ${placeName.value}`;
+
+      const api = `https://api.openweathermap.org/data/2.5/weather?q=${placeName.value}&APPID=b25fd1e90c25991bbe5d57ab854aaaab`;
+      fetch(api)
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          // console.log(data);
+          const cityName = data.name;
+          // console.log(cityName);
+          // document.querySelector('.place-name').value = cityName;
+          const degreeKelvin = data.main.temp;
+          const degreeCelsius = Math.floor(degreeKelvin - (273.15));
+          // console.log(degreeCelsius);
+          document.querySelector('.degree-symbol').innerHTML = "&deg C";
+          // document.querySelector('.name-city').textContent = `You check weather for: ${cityName}`;
+          document.querySelector('.degree').textContent = `${degreeCelsius}`;
+          const description = data.weather[0].description;
+          document.querySelector('.description').textContent = description;
+          const pressure = data.main.pressure;
+          document.querySelector('.pressure').textContent = pressure + ' hPa';
+          const wind = data.wind.speed;
+          document.querySelector('.wind').textContent = wind + ' m/s';
+
+        });
+    }
+  })
+}
+
 function getDate() {
   const currentDate = new Date();
   let dayNumber = currentDate.getDay();
@@ -45,12 +79,13 @@ function getWeather(dl, szer) {
       // console.log(data);
       const cityName = data.name;
       // console.log(cityName);
-      document.querySelector('.place-name').value = cityName;
+      // document.querySelector('.place-name').value = cityName;
       const degreeKelvin = data.main.temp;
-      const degreeCelsius = degreeKelvin - (273.15);
+      const degreeCelsius = Math.floor(degreeKelvin - (273.15));
       // console.log(degreeCelsius);
       document.querySelector('.degree-symbol').innerHTML = "&deg C";
-      document.querySelector('.degree').textContent = Math.floor(degreeCelsius);
+      document.querySelector('.name-city').textContent = `You check weather for: ${cityName}`;
+      document.querySelector('.degree').textContent = `${degreeCelsius}`;
       const description = data.weather[0].description;
       document.querySelector('.description').textContent = description;
       const pressure = data.main.pressure;
@@ -80,8 +115,13 @@ function getPosition() {
 
 }
 
+//klik search city
+
+
 getDate();
+getCityName();
 getPosition();
+
 
 // getWeather(21.0117800, 52.2297700);
 // getWeather(dl, szer);
